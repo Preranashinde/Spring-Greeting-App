@@ -37,11 +37,15 @@ public class GreetingAppService {
     public List<Greeting> listAllGreetingMessage() {
         return greetingRepository.findAll();
     }
+
     public Optional<Greeting> updateGreetingMessage(Greeting greeting, int id) {
         Optional<Greeting> greetingObject = greetingRepository.findById(id);
         greetingObject.get().setMessage(greeting.getMessage());
         greetingRepository.save(greetingObject.get());
         return greetingObject;
+    }
+    public void deleteGreetingMessage(int id) {
+        greetingRepository.deleteById(id);
     }
 }
 
