@@ -4,6 +4,7 @@ import com.example.springboot.model.Greeting;
 import com.example.springboot.repository.GreetingRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import java.util.Optional;
 
 @Service
 public class GreetingAppService {
@@ -17,9 +18,13 @@ public class GreetingAppService {
 
     public String greetingMessage(String name) {
         String message = "Hello " + name;
-        Greeting greeting = new Greeting(greetingRepository.count() + 1, name, message);
+        Greeting greeting = new Greeting((int) (greetingRepository.count() + 1), name, message);
         greetingRepository.save(greeting);
         return message;
+    }
+
+    public Optional<Greeting> findGreetingMessage(int id) {
+        return greetingRepository.findById(id);
     }
 }
 

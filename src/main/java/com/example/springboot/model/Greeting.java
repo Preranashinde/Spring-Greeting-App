@@ -11,7 +11,10 @@ public class Greeting {
     private String name;
     private String message;
 
-    public Greeting(long id, String name, String message) {
+    public Greeting() {
+    }
+
+    public Greeting(int id, String name, String message) {
         this.id = id;
         this.name = name;
         this.message = message;
