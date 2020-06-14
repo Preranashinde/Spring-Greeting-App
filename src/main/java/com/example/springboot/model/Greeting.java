@@ -20,6 +20,11 @@ public class Greeting {
         this.message = message;
     }
 
+    public Greeting(long id, String message) {
+        this.id = id;
+        this.message = message;
+    }
+
     public long getId() {
         return id;
     }
