@@ -4,7 +4,10 @@ import com.example.springboot.model.Greeting;
 import com.example.springboot.repository.GreetingRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 public class GreetingAppService {
@@ -25,6 +28,10 @@ public class GreetingAppService {
 
     public Optional<Greeting> findGreetingMessage(int id) {
         return greetingRepository.findById(id);
+    }
+
+    public List<Greeting> listAllGreetingMessage() {
+        return greetingRepository.findAll();
     }
 }
 
